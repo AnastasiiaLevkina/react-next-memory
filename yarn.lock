@@ -115,6 +115,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gitignore@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "gitignore@npm:0.7.0"
+  bin:
+    gitignore: bin/gitignore.js
+  checksum: 10c0/0b8bb7e28610f9ed8f9eb46e1c873839f3ef6bac4484d9c701c4bcb01fdc68f4ebaa11c3043f9dbfdf13aaee7b48651f16def2731da840c04fd8bf84d5ec5c8b
+  languageName: node
+  linkType: hard
+
 "graceful-fs@npm:^4.2.11":
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
@@ -241,6 +250,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-next-memory@workspace:."
   dependencies:
+    gitignore: "npm:^0.7.0"
     next: "npm:14.2.5"
     react: "npm:^18"
     react-dom: "npm:^18"
