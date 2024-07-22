@@ -1,5 +1,5 @@
 Feature: Sample
 
-Scenario: Test Feature
-Given I am on the homepage
-Then I should see "Hello React!"
+Scenario: Test the sample feature
+    Given I am on the homepage
+    Then I should see the "Hello React!" text
