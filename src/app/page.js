@@ -1,5 +1,5 @@
-export default function Home () {
+export default function Page () {
   return (
-    <h1>Hello React!</h1>
+    <h1 data-testid="my-test-id">Hello React!</h1>
   )
 }
