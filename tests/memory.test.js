@@ -16,7 +16,7 @@ defineFeature(feature, (test) => {
       steps.openGame()
     })
     then('all the cards should be facing down', () => {
-      expect(true).toBe(true)
+      expect(steps.allCardsFacingDownVerification()).toBe(true)
     })
   })
   test('Starting game - All the cards should be enabled', ({ given, then, pending }) => {

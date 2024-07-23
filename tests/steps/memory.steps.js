@@ -10,3 +10,13 @@ export function gridDimensionsValidation (rows, columns) {
   const cards = screen.getAllByTestId('memory-card', { exact: false })
   return cards.length === rows * columns
 }
+
+export function allCardsFacingDownVerification () {
+  const cards = screen.getAllByTestId('memory-card', { exact: false })
+  cards.forEach((card) => {
+    if (!card.classList.contains('facing-down')) {
+      return false
+    }
+  })
+  return true
+}
