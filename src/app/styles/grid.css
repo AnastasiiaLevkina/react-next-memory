@@ -1,4 +1,4 @@
-.grid-row {
+.memory-grid-row {
     display: flex;
     flex-direction: row;
 }
