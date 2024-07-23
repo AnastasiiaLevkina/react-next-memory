@@ -1,5 +1,7 @@
+import Grid from './components/grid'
+
 export default function Page () {
   return (
-    <h1 data-testid='app-title'>Hello React!</h1>
+    <Grid />
   )
 }
