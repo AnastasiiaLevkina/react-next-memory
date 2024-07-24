@@ -8,7 +8,7 @@ export function openGame () {
 
 export function gridDimensionsValidation (rows, columns) {
   const cards = screen.getAllByTestId('memory-card', { exact: false })
-  return cards.length === rows * columns
+  return Number(cards.length) === Number(rows) * Number(columns)
 }
 
 export function allCardsFacingDownVerification () {

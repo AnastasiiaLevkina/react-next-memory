@@ -1,7 +1,7 @@
-import Grid from './components/grid'
+import Game from './components/game'
 
 export default function Page () {
   return (
-    <Grid />
+    <Game />
   )
 }

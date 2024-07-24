@@ -7,7 +7,7 @@ defineFeature(feature, (test) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
-    then(/^the grid of cards should have ".*" rows and ".*" columns$/, (numberOfRows, numberOfCols) => {
+    then(/^the grid of cards should have "(.*)" rows and "(.*)" columns$/, (numberOfRows, numberOfCols) => {
       expect(steps.gridDimensionsValidation(numberOfRows, numberOfCols)).toBe(true)
     })
   })
@@ -29,9 +29,9 @@ defineFeature(feature, (test) => {
   })
   test('Flipping a card with a mouse - Using mouse left click', ({ given, when, then, pending }) => {
     given('the player opens the game', () => {
-      steps.openGame()
+      pending()
     })
-    given('the player loads the following mock data', (docString) => {
+    given('the player loads the following mock data:', (docString) => {
       pending()
     })
     when(/^the player left clicks on the card ".*"$/, (cardId) => {
@@ -45,7 +45,7 @@ defineFeature(feature, (test) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
-    given('the player loads the following mock data', (docString) => {
+    given('the player loads the following mock data:', (docString) => {
       pending()
     })
     when(/^the player left clicks on the card ".*"$/, (cardId) => {
@@ -59,13 +59,13 @@ defineFeature(feature, (test) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
-    given('the player loads the following mock data', (docString) => {
+    given('the player loads the following mock data:', (docString) => {
       pending()
     })
-    when(/^the player left clicks on the card ".*"$/, (cardId) => {
+    when(/^the player flips the card ".*"$/, (cardId) => {
       pending()
     })
-    and(/^the player left clicks on the card ".*"$/, (cardId) => {
+    and(/^the player flips the card ".*"$/, (cardId) => {
       pending()
     })
     then(/^the card ".*" should be facing down$/, (cardId) => {
@@ -79,13 +79,13 @@ defineFeature(feature, (test) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
-    given('the player loads the following mock data', (docString) => {
+    given('the player loads the following mock data:', (docString) => {
       pending()
     })
-    when(/^the player left clicks on the card ".*"$/, (cardId) => {
+    when(/^the player flips the card ".*"$/, (cardId) => {
       pending()
     })
-    and(/^the player left clicks on the card ".*"$/, (cardId) => {
+    and(/^the player flips the card ".*"$/, (cardId) => {
       pending()
     })
     then(/^the card ".*" should be enabled$/, (cardId) => {
@@ -99,13 +99,13 @@ defineFeature(feature, (test) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
-    given('the player loads the following mock data', (docString) => {
+    given('the player loads the following mock data:', (docString) => {
       pending()
     })
-    when(/^the player left clicks on the card ".*"$/, (cardId) => {
+    when(/^the player flips the card ".*"$/, (cardId) => {
       pending()
     })
-    and(/^the player left clicks on the card ".*"$/, (cardId) => {
+    and(/^the player flips the card ".*"$/, (cardId) => {
       pending()
     })
     then(/^the card ".*" should be facing up$/, (cardId) => {
@@ -117,15 +117,15 @@ defineFeature(feature, (test) => {
   })
   test('Flipping two cards - Cards matching - Disabling the cards', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
-      steps.openGame()
-    })
-    given('the player loads the following mock data', (docString) => {
       pending()
     })
-    when(/^the player left clicks on the card ".*"$/, (cardId) => {
+    given('the player loads the following mock data:', (docString) => {
       pending()
     })
-    and(/^the player left clicks on the card ".*"$/, (cardId) => {
+    when(/^the player flips the card ".*"$/, (cardId) => {
+      pending()
+    })
+    and(/^the player flips the card ".*"$/, (cardId) => {
       pending()
     })
     then(/^the card ".*" should be disabled$/, (cardId) => {
@@ -135,17 +135,17 @@ defineFeature(feature, (test) => {
       pending()
     })
   })
-  test('Flipping two cards - Cards matching - Disabling the cards', ({ given, when, and, then, pending }) => {
+  test('Flipping all the matching cards - Winning the game', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
-      steps.openGame()
-    })
-    given('the player loads the following mock data', (docString) => {
       pending()
     })
-    when(/^the player left clicks on the card ".*"$/, (cardId) => {
+    given('the player loads the following mock data:', (docString) => {
       pending()
     })
-    and(/^the player left clicks on the card ".*"$/, (cardId) => {
+    when(/^the player flips the card ".*"$/, (cardId) => {
+      pending()
+    })
+    and(/^the player flips the card ".*"$/, (cardId) => {
       pending()
     })
     then('the player should win the game', () => {

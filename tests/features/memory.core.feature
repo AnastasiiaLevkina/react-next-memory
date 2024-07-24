@@ -36,7 +36,7 @@ Scenario: Flipping a card with a mouse - Using mouse left click
     Then the card "1" should be facing up
 
 Scenario: Flipping a card - Disabling the card
-    Given the player loads the following mock data
+    Given the player loads the following mock data:
     """
         | 1 |
     """
@@ -44,7 +44,7 @@ Scenario: Flipping a card - Disabling the card
     Then the card "1" should be disabled
 
 Scenario: Flipping two cards - Cards not matching - Flipping the cards face down
-    Given the player loads the following mock data
+    Given the player loads the following mock data:
     """
         | 1 | 2 |
     """
@@ -54,7 +54,7 @@ Scenario: Flipping two cards - Cards not matching - Flipping the cards face down
     And the card "2" should be facing down
 
 Scenario: Flipping two cards - Cards not matching - Reenabling the cards
-    Given the player loads the following mock data
+    Given the player loads the following mock data:
     """
         | 1 | 2 |
     """
@@ -64,7 +64,7 @@ Scenario: Flipping two cards - Cards not matching - Reenabling the cards
     And the card "2" should be enabled
 
 Scenario: Flipping two cards - Cards matching - Keeping the cards face up
-    Given the player loads the following mock data
+    Given the player loads the following mock data:
     """
         | 1 | 1 |
     """
@@ -74,7 +74,7 @@ Scenario: Flipping two cards - Cards matching - Keeping the cards face up
     And the card "2" should be facing up
 
 Scenario: Flipping two cards - Cards matching - Disabling the cards
-    Given the player loads the following mock data
+    Given the player loads the following mock data:
     """
         | 1 | 1 |
     """
@@ -84,7 +84,7 @@ Scenario: Flipping two cards - Cards matching - Disabling the cards
     And the card "2" should be disabled
 
 Scenario: Flipping all the matching cards - Winning the game
-    Given the player loads the following mock data
+    Given the player loads the following mock data:
     """
         | 1 | 1 |
     """
