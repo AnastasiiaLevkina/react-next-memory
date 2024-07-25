@@ -29,16 +29,16 @@ defineFeature(feature, (test) => {
   })
   test('Flipping a card with a mouse - Using mouse left click', ({ given, when, then, pending }) => {
     given('the player opens the game', () => {
-      pending()
+      steps.openGame()
     })
     given('the player loads the following mock data:', (docString) => {
-      pending()
+      steps.setMockData(docString)
     })
     when(/^the player left clicks on the card "(.*)"$/, (cardId) => {
-      pending()
+      steps.flipTheCard(cardId)
     })
     then(/^the card "(.*)" should be facing up$/, (cardId) => {
-      pending()
+      expect(steps.isTheCardFacingDown(cardId)).toBe(false)
     })
   })
   test('Flipping a card - Disabling the card', ({ given, when, then, pending }) => {
@@ -46,13 +46,13 @@ defineFeature(feature, (test) => {
       steps.openGame()
     })
     given('the player loads the following mock data:', (docString) => {
-      pending()
+      steps.setMockData(docString)
     })
     when(/^the player left clicks on the card "(.*)"$/, (cardId) => {
-      pending()
+      steps.flipTheCard(cardId)
     })
     then(/^the card "(.*)" should be disabled$/, (cardId) => {
-      pending()
+      expect(steps.isTheCardDisabled(cardId)).toBe(true)
     })
   })
   test('Flipping two cards - Cards not matching - Flipping the cards face down', ({ given, when, and, then, pending }) => {

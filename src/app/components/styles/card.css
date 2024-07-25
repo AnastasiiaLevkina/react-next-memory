@@ -8,6 +8,8 @@
     border-radius: 10px;
     margin: 5px;
     background-color: azure;
+    justify-content: center;
+    align-items: center;
 }
 
 .facing-down {
@@ -15,4 +17,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.card-image {
+    max-width: 100%;
 }

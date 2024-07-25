@@ -34,6 +34,7 @@ export function allCardsEnabledVerification () {
 }
 
 export function setMockData (data) {
+  console.log('MOCK DATA:', data)
   data = data.trim()
   fireEvent.keyDown(screen.getByTestId('card-grid'), {
     key: 'm',
@@ -51,4 +52,18 @@ export function setMockData (data) {
   const submitButton = screen.getByTestId('mock-data-submit')
   fireEvent.change(textInput, { target: { value: data } })
   fireEvent.click(submitButton)
+}
+
+export function flipTheCard (cardId) {
+  fireEvent.click(screen.getByTestId('memory-card card-' + cardId, { exact: true }))
+}
+
+export function isTheCardFacingDown (cardId) {
+  const card = screen.getByTestId('memory-card card-' + cardId, { exact: true })
+  return card.classList.contains('facing-down')
+}
+
+export function isTheCardDisabled (cardId) {
+  const card = screen.getByTestId('memory-card card-' + cardId, { exact: true })
+  return card.tagName === 'div'
 }

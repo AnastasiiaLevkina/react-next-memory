@@ -20,10 +20,14 @@ export default function Grid ({ mockData }) {
   }, [mockData])
 
   function validateMockData (data) {
+    let result = true
     if (data === undefined || data === '') {
-      return false
+      result = false
     }
-    return data.includes('-')
+    const newLocal = '/^[\\d-]+$/gm'
+    const regex = new RegExp(newLocal)
+    // return regex.test(data)
+    return result
   }
 
   function getGridFromMockData (data) {
@@ -35,7 +39,7 @@ export default function Grid ({ mockData }) {
   return (
     <div className='memory-grid' data-testid='card-grid'>
       {cardGridData.map((image, i) => {
-        return <Card key={i} imageId={image} />
+        return <Card key={i} cardId={i + 1} imageId={image} />
       })}
     </div>
   )
