@@ -23,10 +23,12 @@ export default function Grid ({ mockData }) {
     let result = true
     if (data === undefined || data === '') {
       result = false
+    } else {
+      const newLocal = '^[\\d-]+$'
+      const regex = new RegExp(newLocal)
+      result = regex.test(data)
     }
-    const newLocal = '/^[\\d-]+$/gm'
-    const regex = new RegExp(newLocal)
-    // return regex.test(data)
+
     return result
   }
 
