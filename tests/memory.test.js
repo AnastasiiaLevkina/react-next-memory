@@ -100,19 +100,19 @@ defineFeature(feature, (test) => {
       steps.openGame()
     })
     given('the player loads the following mock data:', (docString) => {
-      pending()
+      steps.setMockData(docString)
     })
     when(/^the player flips the card "(.*)"$/, (cardId) => {
-      pending()
+      steps.flipTheCard(cardId)
     })
     and(/^the player flips the card "(.*)"$/, (cardId) => {
-      pending()
+      steps.flipTheCard(cardId)
     })
     then(/^the card "(.*)" should be facing up$/, (cardId) => {
-      pending()
+      expect(steps.isTheCardFacingDown(cardId)).toBe(false)
     })
     and(/^the card "(.*)" should be facing up$/, (cardId) => {
-      pending()
+      expect(steps.isTheCardFacingDown(cardId)).toBe(false)
     })
   })
   test('Flipping two cards - Cards matching - Disabling the cards', ({ given, when, and, then, pending }) => {
