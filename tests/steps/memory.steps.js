@@ -71,3 +71,8 @@ export function isTheCardDisabled (cardId) {
   const card = screen.getByTestId('memory-card card-' + cardId, { exact: true })
   return card.tagName === 'DIV'
 }
+
+export function thePlayerWonTheGame () {
+  const header = screen.getByTestId('game-header')
+  return header.innerHTML === 'Congrapulations, you won!'
+}

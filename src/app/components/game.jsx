@@ -6,6 +6,7 @@ import MockDataForm from './mockDataForm'
 export default function Game () {
   const [mockDataFormVisible, setMockDataFormVisible] = useState(false)
   const [mockData, setMockData] = useState('')
+  const [title, setTitle] = useState('Memory')
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
@@ -19,11 +20,16 @@ export default function Game () {
       setMockDataFormVisible(!mockDataFormVisible)
     }
   }
+
+  function setWinningTitle () {
+    setTitle('Congrapulations, you won!')
+  }
+
   return (
     <center>
-      <h1>Memory</h1>
+      <h1 data-testid='game-header'>{title}</h1>
       {mockDataFormVisible && <MockDataForm setData={setMockData} />}
-      <Grid mockData={mockData} />
+      <Grid mockData={mockData} onGameWon={setWinningTitle} />
     </center>
   )
 }

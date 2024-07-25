@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react'
 import Card from './card'
 import './styles/grid.css'
 
-export default function Grid ({ mockData }) {
+export default function Grid ({ mockData, onGameWon }) {
   const [cardGridData, setCardGridData] = useState([])
   const [awaitingClick, setAwaitingClick] = useState(false)
+  const [pairsLeftToMatch, setPairsLeftToMacth] = useState(0)
 
   const [selectedCard, setSelectedCard] = useState({
     cardId: 0,
@@ -27,6 +28,7 @@ export default function Grid ({ mockData }) {
       card.facingDown = true
     })
     setCardGridData(preData)
+    setPairsLeftToMacth(preData.length / 2)
     console.log('CARD GRID DATA:', cardGridData)
   }, [mockData])
 
@@ -89,6 +91,11 @@ export default function Grid ({ mockData }) {
       } else {
         setSelectedCard({ cardId: 0, imageId: 0 })
         setSecondSelectedCard({ cardId: 0, imageId: 0 })
+        setPairsLeftToMacth((pairsLeftToMatch) => pairsLeftToMatch - 1)
+        if (pairsLeftToMatch === 1) {
+          console.log('The player won the game!')
+          onGameWon()
+        }
       }
     } else {
       setSelectedCard({ cardId, imageId })
