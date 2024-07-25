@@ -1,11 +1,9 @@
 'use client'
-import { useState } from 'react'
 import './styles/card.css'
 
-export default function Card ({ cardId, imageId }) {
-  const [facingDown, setFacingDown] = useState(true)
-  function handleCardClick () {
-    setFacingDown(!facingDown)
+export default function Card ({ cardId, imageId, facingDown, onCardFlipped }) {
+  function handleCardLeftClick () {
+    onCardFlipped(cardId, imageId)
   }
 
   if (facingDown) {
@@ -13,7 +11,7 @@ export default function Card ({ cardId, imageId }) {
       <button
         className='memory-card facing-down'
         data-testid={`memory-card card-${cardId}`}
-        onClick={handleCardClick}
+        onClick={handleCardLeftClick}
       />
     )
   } else {
@@ -23,7 +21,7 @@ export default function Card ({ cardId, imageId }) {
         data-testid={`memory-card card-${cardId}`}
       >
         <img
-          src='https://freepngimg.com/download/whatsapp/73733-emoticon-smiley-wink-smile-whatsapp-emoji.png'
+          src={`cardImages/img${imageId}.png`}
           className='card-image'
         />
       </div>
