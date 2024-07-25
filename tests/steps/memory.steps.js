@@ -58,6 +58,10 @@ export function flipTheCard (cardId) {
   fireEvent.click(screen.getByTestId('memory-card card-' + cardId, { exact: true }))
 }
 
+export function clickOnTheScreen () {
+  fireEvent.click(screen.getByTestId('card-grid', { exact: true }))
+}
+
 export function isTheCardFacingDown (cardId) {
   const card = screen.getByTestId('memory-card card-' + cardId, { exact: true })
   return card.classList.contains('facing-down')

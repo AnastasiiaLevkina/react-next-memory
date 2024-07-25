@@ -17,7 +17,7 @@ Feature: Memory Game
 Background:
     Given the player opens the game
 
-Scenario: Starting game - Grid of cards default sizing 3x4
+Scenario: Starting game - Grid of cards default sizing 12 cards
     Then the grid of cards should have "12" cards
 
 Scenario: Starting game - All the cards should be facing down
@@ -42,13 +42,14 @@ Scenario: Flipping a card - Disabling the card
     When the player left clicks on the card "1"
     Then the card "1" should be disabled
 
-Scenario: Flipping two cards - Cards not matching - Flipping the cards face down
+Scenario: Flipping two cards - Cards not matching - Flipping the cards face down after a click
     Given the player loads the following mock data:
     """
         1-2
     """
     When the player flips the card "1"
     And the player flips the card "2"
+    And the player clicks on the screen
     Then the card "1" should be facing down
     And the card "2" should be facing down
 

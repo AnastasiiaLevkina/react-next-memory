@@ -5,10 +5,17 @@ import './styles/grid.css'
 
 export default function Grid ({ mockData }) {
   const [cardGridData, setCardGridData] = useState([])
+  const [awaitingClick, setAwaitingClick] = useState(false)
+
   const [selectedCard, setSelectedCard] = useState({
     cardId: 0,
     imageId: 0
   })
+  const [secongSelectedCard, setSecondSelectedCard] = useState({
+    cardId: 0,
+    imageId: 0
+  })
+
   useEffect(() => {
     let preData
     if (validateMockData(mockData)) {
@@ -16,9 +23,22 @@ export default function Grid ({ mockData }) {
     } else {
       preData = generateCardGrid()
     }
+    preData.forEach((card) => {
+      card.facingDown = true
+    })
     setCardGridData(preData)
     console.log('CARD GRID DATA:', cardGridData)
   }, [mockData])
+
+  function onClickToFlipUnmatchingCards () {
+    const newGridData = [...cardGridData]
+    newGridData[selectedCard.cardId - 1].facingDown = true
+    newGridData[secongSelectedCard.cardId - 1].facingDown = true
+    setAwaitingClick(false)
+    setSelectedCard({ cardId: 0, imageId: 0 })
+    setSecondSelectedCard({ cardId: 0, imageId: 0 })
+    setCardGridData(newGridData)
+  }
 
   function validateMockData (data) {
     let result = true
@@ -63,33 +83,48 @@ export default function Grid ({ mockData }) {
     const newGridData = [...cardGridData]
     newGridData[cardId - 1].facingDown = false
     if (selectedCard.cardId !== 0) {
-      console.log('SELECTED SECOND CARD')
-      console.log('1st IMAGE ID:', selectedCard.imageId, '2nd IMAGE ID:', imageId)
+      setSecondSelectedCard({ cardId, imageId })
       if (imageId !== selectedCard.imageId) {
-        console.log('NOT A COINCIDENCE!')
-        newGridData[cardId - 1].facingDown = true
-        newGridData[selectedCard.cardId - 1].facingDown = true
+        setAwaitingClick(true)
+      } else {
+        setSelectedCard({ cardId: 0, imageId: 0 })
+        setSecondSelectedCard({ cardId: 0, imageId: 0 })
       }
-      setSelectedCard({ cardId: 0, imageId: 0 })
     } else {
-      console.log('SELECTED FIRST CARD')
       setSelectedCard({ cardId, imageId })
     }
     setCardGridData(newGridData)
   }
 
-  return (
-    <div className='memory-grid' data-testid='card-grid'>
-      {cardGridData.map((card, i) => {
-        return (
-          <Card
-            key={i} cardId={i + 1}
-            imageId={card.imageId}
-            facingDown={card.facingDown}
-            onCardFlipped={onCardFlipped}
-          />
-        )
-      })}
-    </div>
-  )
+  if (awaitingClick) {
+    return (
+      <div className='memory-grid' data-testid='card-grid' onClick={onClickToFlipUnmatchingCards}>
+        {cardGridData.map((card, i) => {
+          return (
+            <Card
+              key={i} cardId={i + 1}
+              imageId={card.imageId}
+              facingDown={card.facingDown}
+              onCardFlipped={console.log(':)')}
+            />
+          )
+        })}
+      </div>
+    )
+  } else {
+    return (
+      <div className='memory-grid' data-testid='card-grid'>
+        {cardGridData.map((card, i) => {
+          return (
+            <Card
+              key={i} cardId={i + 1}
+              imageId={card.imageId}
+              facingDown={card.facingDown}
+              onCardFlipped={onCardFlipped}
+            />
+          )
+        })}
+      </div>
+    )
+  }
 }

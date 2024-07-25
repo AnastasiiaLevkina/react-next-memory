@@ -3,7 +3,7 @@ import * as steps from './steps/memory.steps'
 
 const feature = loadFeature('./tests/features/memory.core.feature')
 defineFeature(feature, (test) => {
-  test('Starting game - Grid of cards default sizing 3x4', ({ given, then }) => {
+  test('Starting game - Grid of cards default sizing 12 cards', ({ given, then }) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
@@ -55,7 +55,7 @@ defineFeature(feature, (test) => {
       expect(steps.isTheCardDisabled(cardId)).toBe(true)
     })
   })
-  test('Flipping two cards - Cards not matching - Flipping the cards face down', ({ given, when, and, then, pending }) => {
+  test('Flipping two cards - Cards not matching - Flipping the cards face down after a click', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
@@ -67,6 +67,9 @@ defineFeature(feature, (test) => {
     })
     and(/^the player flips the card "(.*)"$/, (cardId) => {
       steps.flipTheCard(cardId)
+    })
+    and('the player clicks on the screen', () => {
+      steps.clickOnTheScreen()
     })
     then(/^the card "(.*)" should be facing down$/, (cardId) => {
       expect(steps.isTheCardFacingDown(cardId)).toBe(true)
