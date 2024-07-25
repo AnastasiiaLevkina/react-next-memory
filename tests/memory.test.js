@@ -91,6 +91,9 @@ defineFeature(feature, (test) => {
     and(/^the player flips the card "(.*)"$/, (cardId) => {
       steps.flipTheCard(cardId)
     })
+    and('the player clicks on the screen', () => {
+      steps.clickOnTheScreen()
+    })
     then(/^the card "(.*)" should be enabled$/, (cardId) => {
       expect(steps.isTheCardDisabled(cardId)).toBe(false)
     })

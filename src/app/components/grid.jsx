@@ -105,7 +105,7 @@ export default function Grid ({ mockData }) {
               key={i} cardId={i + 1}
               imageId={card.imageId}
               facingDown={card.facingDown}
-              onCardFlipped={console.log(':)')}
+              disabled
             />
           )
         })}

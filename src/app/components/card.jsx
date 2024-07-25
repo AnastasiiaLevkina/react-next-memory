@@ -1,9 +1,11 @@
 'use client'
 import './styles/card.css'
 
-export default function Card ({ cardId, imageId, facingDown, onCardFlipped }) {
+export default function Card ({ cardId, imageId, facingDown, onCardFlipped, disabled = false }) {
   function handleCardLeftClick () {
-    onCardFlipped(cardId, imageId)
+    if (!disabled) {
+      onCardFlipped(cardId, imageId)
+    }
   }
 
   if (facingDown) {

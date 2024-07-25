@@ -60,6 +60,7 @@ Scenario: Flipping two cards - Cards not matching - Reenabling the cards
     """
     When the player flips the card "1"
     And the player flips the card "2"
+    And the player clicks on the screen
     Then the card "1" should be enabled
     And the card "2" should be enabled
 
