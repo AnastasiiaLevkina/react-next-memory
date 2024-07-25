@@ -65,5 +65,5 @@ export function isTheCardFacingDown (cardId) {
 
 export function isTheCardDisabled (cardId) {
   const card = screen.getByTestId('memory-card card-' + cardId, { exact: true })
-  return card.tagName === 'div'
+  return card.tagName === 'DIV'
 }

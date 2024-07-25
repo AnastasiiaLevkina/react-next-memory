@@ -19,7 +19,7 @@ defineFeature(feature, (test) => {
       expect(steps.allCardsFacingDownVerification()).toBe(true)
     })
   })
-  test('Starting game - All the cards should be enabled', ({ given, then, pending }) => {
+  test('Starting game - All the cards should be enabled', ({ given, then }) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
@@ -27,7 +27,7 @@ defineFeature(feature, (test) => {
       expect(steps.allCardsEnabledVerification()).toBe(true)
     })
   })
-  test('Flipping a card with a mouse - Using mouse left click', ({ given, when, then, pending }) => {
+  test('Flipping a card with a mouse - Using mouse left click', ({ given, when, then }) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
@@ -41,7 +41,7 @@ defineFeature(feature, (test) => {
       expect(steps.isTheCardFacingDown(cardId)).toBe(false)
     })
   })
-  test('Flipping a card - Disabling the card', ({ given, when, then, pending }) => {
+  test('Flipping a card - Disabling the card', ({ given, when, then }) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
