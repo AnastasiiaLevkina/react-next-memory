@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 export default function MockDataForm ({ setData }) {
-  const [mockData, setMockData] = useState('| 1 | 2 |')
+  const [mockData, setMockData] = useState('1-1')
   function handleSubmit (e) {
     e.preventDefault()
     setData(mockData)

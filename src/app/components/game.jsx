@@ -20,10 +20,10 @@ export default function Game () {
     }
   }
   return (
-    <>
+    <center>
       <h1>Memory</h1>
       {mockDataFormVisible && <MockDataForm setData={setMockData} />}
       <Grid mockData={mockData} />
-    </>
+    </center>
   )
 }

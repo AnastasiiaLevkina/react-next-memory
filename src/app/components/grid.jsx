@@ -6,33 +6,36 @@ import './styles/grid.css'
 export default function Grid ({ mockData }) {
   const [cardGridData, setCardGridData] = useState([1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6])
 
-  /*
   useEffect(() => {
-    const preData = [...cardGridData]
-    // Shuffle the card list
-    preData.sort(() => Math.random() - 0.5)
+    let preData
+    if (validateMockData(mockData)) {
+      preData = getGridFromMockData(mockData)
+    } else {
+      preData = cardGridData
+      // Shuffle the card list
+      preData = [...cardGridData]
+      preData.sort(() => Math.random() - 0.5)
+    }
     setCardGridData(preData)
-  })
-*/
+  }, [mockData])
 
   function validateMockData (data) {
-    const dataSet = new Set(data)
-    // If all the elements of the array have a match
-    return dataSet.size === data.length / 2
+    if (data === undefined || data === '') {
+      return false
+    }
+    return data.includes('-')
   }
 
   function getGridFromMockData (data) {
-    let arrData = data.split('/|?|/').join('-')
-    arrData = arrData.replaceAll(' ', '')
-    arrData = arrData.replaceAll('|', '')
-    arrData = arrData.split('-')
+    const arrData = data.replaceAll(' ', '').split('-')
     console.log(arrData)
+    return arrData
   }
 
   return (
-    <div className='card-grid' data-testid='card-grid'>
-      {cardGridData.map((card, i) => {
-        return <Card key={i} cardId={card} />
+    <div className='memory-grid' data-testid='card-grid'>
+      {cardGridData.map((image, i) => {
+        return <Card key={i} imageId={image} />
       })}
     </div>
   )
