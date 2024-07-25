@@ -117,22 +117,22 @@ defineFeature(feature, (test) => {
   })
   test('Flipping two cards - Cards matching - Disabling the cards', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
-      pending()
+      steps.openGame()
     })
     given('the player loads the following mock data:', (docString) => {
-      pending()
+      steps.setMockData(docString)
     })
     when(/^the player flips the card "(.*)"$/, (cardId) => {
-      pending()
+      steps.flipTheCard(cardId)
     })
     and(/^the player flips the card "(.*)"$/, (cardId) => {
-      pending()
+      steps.flipTheCard(cardId)
     })
     then(/^the card "(.*)" should be disabled$/, (cardId) => {
-      pending()
+      expect(steps.isTheCardDisabled(cardId)).toBe(true)
     })
     and(/^the card "(.*)" should be disabled$/, (cardId) => {
-      pending()
+      expect(steps.isTheCardDisabled(cardId)).toBe(true)
     })
   })
   test('Flipping all the matching cards - Winning the game', ({ given, when, and, then, pending }) => {
