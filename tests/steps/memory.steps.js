@@ -33,6 +33,17 @@ export function allCardsEnabledVerification () {
   return result
 }
 
+export function allCardsDisabledVerification () {
+  const cards = screen.getAllByTestId('memory-card', { exact: false })
+  let result = true
+  cards.forEach((card) => {
+    if (card.disabled === false && card.tagName !== 'DIV') {
+      result = false
+    }
+  })
+  return result
+}
+
 export function setMockData (data) {
   console.log('MOCK DATA:', data)
   data = data.trim()
@@ -69,7 +80,7 @@ export function isTheCardFacingDown (cardId) {
 
 export function isTheCardDisabled (cardId) {
   const card = screen.getByTestId('memory-card card-' + cardId, { exact: true })
-  return card.tagName === 'DIV'
+  return (card.tagName === 'DIV' || card.disabled === true)
 }
 
 export function thePlayerWonTheGame () {

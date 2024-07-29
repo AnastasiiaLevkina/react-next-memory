@@ -3,20 +3,29 @@ import './styles/card.css'
 
 export default function Card ({ cardId, imageId, facingDown, onCardFlipped, disabled = false }) {
   function handleCardLeftClick () {
-    if (!disabled) {
-      onCardFlipped(cardId, imageId)
+    onCardFlipped(cardId, imageId)
+  }
+
+  function getCardFacingDown () {
+    if (disabled) {
+      return (
+        <div
+          className='memory-card facing-down'
+          data-testid={`memory-card card-${cardId}`}
+        />
+      )
+    } else {
+      return (
+        <button
+          className='memory-card facing-down'
+          data-testid={`memory-card card-${cardId}`}
+          onClick={handleCardLeftClick}
+        />
+      )
     }
   }
 
-  if (facingDown) {
-    return (
-      <button
-        className='memory-card facing-down'
-        data-testid={`memory-card card-${cardId}`}
-        onClick={handleCardLeftClick}
-      />
-    )
-  } else {
+  function getCardFacingUp () {
     return (
       <div
         className='memory-card'
@@ -28,5 +37,11 @@ export default function Card ({ cardId, imageId, facingDown, onCardFlipped, disa
         />
       </div>
     )
+  }
+
+  if (facingDown) {
+    return getCardFacingDown()
+  } else {
+    return getCardFacingUp()
   }
 }

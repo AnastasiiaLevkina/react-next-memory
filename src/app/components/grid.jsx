@@ -92,8 +92,8 @@ export default function Grid ({ mockData, onGameWon }) {
         setSelectedCard({ cardId: 0, imageId: 0 })
         setSecondSelectedCard({ cardId: 0, imageId: 0 })
         setPairsLeftToMacth((pairsLeftToMatch) => pairsLeftToMatch - 1)
+        console.log(pairsLeftToMatch)
         if (pairsLeftToMatch === 1) {
-          console.log('The player won the game!')
           onGameWon()
         }
       }
@@ -127,7 +127,8 @@ export default function Grid ({ mockData, onGameWon }) {
               key={i} cardId={i + 1}
               imageId={card.imageId}
               facingDown={card.facingDown}
-              onCardFlipped={onCardFlipped}
+              onCardFlipped={onCardFlipped}ç
+              disabled={awaitingClick}
             />
           )
         })}

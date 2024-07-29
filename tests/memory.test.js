@@ -55,7 +55,30 @@ defineFeature(feature, (test) => {
       expect(steps.isTheCardDisabled(cardId)).toBe(true)
     })
   })
-  test('Flipping two cards - Cards not matching - Flipping the cards face down after a click', ({ given, when, and, then, pending }) => {
+
+  test('Flipping two cards - Cards not matching - Disabling all the cards', ({ given, when, and, then }) => {
+    given('the player opens the game', () => {
+      steps.openGame()
+    })
+
+    given('the player loads the following mock data:', (docString) => {
+      steps.setMockData(docString)
+    })
+
+    when(/^the player flips the card "(.*)"$/, (cardId) => {
+      steps.flipTheCard(cardId)
+    })
+
+    and(/^the player flips the card "(.*)"$/, (cardId) => {
+      steps.flipTheCard(cardId)
+    })
+
+    then('all the cards should be disabled', () => {
+      expect(steps.allCardsDisabledVerification()).toBe(true)
+    })
+  })
+
+  test('Flipping two cards - Cards not matching - Flipping the cards face down after a click on the screen', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
       steps.openGame()
     })
@@ -78,7 +101,7 @@ defineFeature(feature, (test) => {
       expect(steps.isTheCardFacingDown(cardId)).toBe(true)
     })
   })
-  test('Flipping two cards - Cards not matching - Reenabling the cards', ({ given, when, and, then, pending }) => {
+  test('Flipping two cards - Cards not matching - Reenabling the cards after a click on the screen', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
       steps.openGame()
     })

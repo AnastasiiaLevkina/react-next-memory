@@ -42,7 +42,16 @@ Scenario: Flipping a card - Disabling the card
     When the player left clicks on the card "1"
     Then the card "1" should be disabled
 
-Scenario: Flipping two cards - Cards not matching - Flipping the cards face down after a click
+Scenario:Flipping two cards - Cards not matching - Disabling all the cards 
+    Given the player loads the following mock data:
+    """
+        1-2-1
+    """
+    When the player flips the card "1"
+    And the player flips the card "2"
+    Then all the cards should be disabled
+
+Scenario: Flipping two cards - Cards not matching - Flipping the cards face down after a click on the screen
     Given the player loads the following mock data:
     """
         1-2
@@ -53,7 +62,7 @@ Scenario: Flipping two cards - Cards not matching - Flipping the cards face down
     Then the card "1" should be facing down
     And the card "2" should be facing down
 
-Scenario: Flipping two cards - Cards not matching - Reenabling the cards
+Scenario: Flipping two cards - Cards not matching - Reenabling the cards after a click on the screen
     Given the player loads the following mock data:
     """
         1-2
