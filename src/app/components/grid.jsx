@@ -7,7 +7,6 @@ export default function Grid ({ mockData, onGameWon }) {
   const [cardGridData, setCardGridData] = useState([])
   const [awaitingClick, setAwaitingClick] = useState(false)
   const [pairsLeftToMatch, setPairsLeftToMacth] = useState(0)
-
   const [selectedCard, setSelectedCard] = useState({
     cardId: 0,
     imageId: 0
@@ -127,7 +126,7 @@ export default function Grid ({ mockData, onGameWon }) {
               key={i} cardId={i + 1}
               imageId={card.imageId}
               facingDown={card.facingDown}
-              onCardFlipped={onCardFlipped}ç
+              onCardFlipped={onCardFlipped} ç
               disabled={awaitingClick}
             />
           )

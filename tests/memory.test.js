@@ -55,6 +55,31 @@ defineFeature(feature, (test) => {
       expect(steps.isTheCardDisabled(cardId)).toBe(true)
     })
   })
+  test('Flipping two cards - Cards not matching - Keeping the cards face up', ({ given, when, and, then }) => {
+    given('the player opens the game', () => {
+      steps.openGame()
+    })
+
+    given('the player loads the following mock data:', (docString) => {
+      steps.setMockData(docString)
+    })
+
+    when(/^the player flips the card "(.*)"$/, (cardId) => {
+      steps.flipTheCard(cardId)
+    })
+
+    and(/^the player flips the card "(.*)"$/, (cardId) => {
+      steps.flipTheCard(cardId)
+    })
+
+    then(/^the card "(.*)" should be facing up$/, (cardId) => {
+      expect(steps.isTheCardFacingDown(cardId)).toBe(false)
+    })
+
+    and(/^the card "(.*)" should be facing up$/, (cardId) => {
+      expect(steps.isTheCardFacingDown(cardId)).toBe(false)
+    })
+  })
 
   test('Flipping two cards - Cards not matching - Disabling all the cards', ({ given, when, and, then }) => {
     given('the player opens the game', () => {
