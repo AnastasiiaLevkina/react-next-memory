@@ -1,8 +1,3 @@
-@keyframes fadeIn {
-    0%   {opacity: 0}
-    100% {opacity: 1}
-  }
-
 .memory-card {
     display: inline-block;
     width: 100px;
@@ -23,9 +18,4 @@
 
 .card-image {
     max-width: 100%;
-}
-
-button.memory-card {
-    animation-name: fadeIn;
-    animation-duration: 1s;
 }
