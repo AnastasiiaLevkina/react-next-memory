@@ -58,50 +58,45 @@ defineFeature(feature, (test) => {
 
   test('Flipping two cards - Cards not matching - Flipping the cards face down after a second', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
-
-    });
-
+      pending()
+    })
     given('the player loads the following mock data:', (docString) => {
-
-    });
-
+      pending()
+    })
     when(/^the player flips the card "(.*)"$/, (arg0) => {
-
-    });
-
+      pending()
+    })
     and(/^the player flips the card "(.*)"$/, (arg0) => {
-
-    });
-
-    then(/^the card "(.*)" should be facing down after (\d+) second$/, (arg0, arg1) => {
-
-    });
-
-    and(/^the card "(.*)" should be facing down after (\d+) second$/, (arg0, arg1) => {
-
-    });
-});
-  test('Flipping two cards - Cards not matching - Reenabling the cards after a click on the screen', ({ given, when, and, then, pending }) => {
+      pending()
+    })
+    then(/^the card "(.*)" should be facing down after "(.*)" seconds$/, (arg0, arg1) => {
+      pending()
+    })
+    and(/^the card "(.*)" should be facing down after "(.*)" seconds$/, (arg0, arg1) => {
+      pending()
+    })
+  })
+  test('Flipping two cards - Cards not matching - Reenabling the cards after a second', ({
+    given, when,
+    and, then, pending
+  }) => {
     given('the player opens the game', () => {
-      steps.openGame()
+      pending()
     })
     given('the player loads the following mock data:', (docString) => {
-      steps.setMockData(docString)
+      pending()
     })
-    when(/^the player flips the card "(.*)"$/, (cardId) => {
-      steps.flipTheCard(cardId)
+    when(/^the player flips the card "(.*)"$/, (arg0) => {
+      pending()
     })
-    and(/^the player flips the card "(.*)"$/, (cardId) => {
-      steps.flipTheCard(cardId)
+    and(/^the player flips the card "(.*)"$/, (arg0) => {
+      pending()
     })
-    and('the player clicks on the screen', () => {
-      steps.clickOnTheScreen()
+    then(/^the card "(.*)" should be enabled after "(.*)" seconds$/, (arg0, arg1) => {
+      pending()
     })
-    then(/^the card "(.*)" should be enabled$/, (cardId) => {
-      expect(steps.isTheCardDisabled(cardId)).toBe(false)
-    })
-    and(/^the card "(.*)" should be enabled$/, (cardId) => {
-      expect(steps.isTheCardDisabled(cardId)).toBe(false)
+    and(/^the card "(.*)" should be enabled after "(.*)" seconds$/, (arg0, arg1) => {
+      pending()
     })
   })
   test('Flipping two cards - Cards matching - Keeping the cards face up', ({ given, when, and, then, pending }) => {
