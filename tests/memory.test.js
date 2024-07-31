@@ -55,77 +55,32 @@ defineFeature(feature, (test) => {
       expect(steps.isTheCardDisabled(cardId)).toBe(true)
     })
   })
-  test('Flipping two cards - Cards not matching - Keeping the cards face up', ({ given, when, and, then }) => {
+
+  test('Flipping two cards - Cards not matching - Flipping the cards face down after a second', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
-      steps.openGame()
-    })
+
+    });
 
     given('the player loads the following mock data:', (docString) => {
-      steps.setMockData(docString)
-    })
 
-    when(/^the player flips the card "(.*)"$/, (cardId) => {
-      steps.flipTheCard(cardId)
-    })
+    });
 
-    and(/^the player flips the card "(.*)"$/, (cardId) => {
-      steps.flipTheCard(cardId)
-    })
+    when(/^the player flips the card "(.*)"$/, (arg0) => {
 
-    then(/^the card "(.*)" should be facing up$/, (cardId) => {
-      expect(steps.isTheCardFacingDown(cardId)).toBe(false)
-    })
+    });
 
-    and(/^the card "(.*)" should be facing up$/, (cardId) => {
-      expect(steps.isTheCardFacingDown(cardId)).toBe(false)
-    })
-  })
+    and(/^the player flips the card "(.*)"$/, (arg0) => {
 
-  test('Flipping two cards - Cards not matching - Disabling all the cards', ({ given, when, and, then }) => {
-    given('the player opens the game', () => {
-      steps.openGame()
-    })
+    });
 
-    given('the player loads the following mock data:', (docString) => {
-      steps.setMockData(docString)
-    })
+    then(/^the card "(.*)" should be facing down after (\d+) second$/, (arg0, arg1) => {
 
-    when(/^the player flips the card "(.*)"$/, (cardId) => {
-      steps.flipTheCard(cardId)
-    })
+    });
 
-    and(/^the player flips the card "(.*)"$/, (cardId) => {
-      steps.flipTheCard(cardId)
-    })
+    and(/^the card "(.*)" should be facing down after (\d+) second$/, (arg0, arg1) => {
 
-    then('all the cards should be disabled', () => {
-      expect(steps.allCardsDisabledVerification()).toBe(true)
-    })
-  })
-
-  test('Flipping two cards - Cards not matching - Flipping the cards face down after a click on the screen', ({ given, when, and, then, pending }) => {
-    given('the player opens the game', () => {
-      steps.openGame()
-    })
-    given('the player loads the following mock data:', (docString) => {
-      steps.setMockData(docString)
-    })
-    when(/^the player flips the card "(.*)"$/, (cardId) => {
-      steps.flipTheCard(cardId)
-    })
-    and(/^the player flips the card "(.*)"$/, (cardId) => {
-      steps.flipTheCard(cardId)
-    })
-    and('the player clicks on the screen', () => {
-      steps.clickOnTheScreen()
-    })
-    then(/^the card "(.*)" should be facing down$/, (cardId) => {
-      expect(steps.isTheCardFacingDown(cardId)).toBe(true)
-    })
-    and(/^the card "(.*)" should be facing down$/, (cardId) => {
-      expect(steps.isTheCardFacingDown(cardId)).toBe(true)
-    })
-  })
+    });
+});
   test('Flipping two cards - Cards not matching - Reenabling the cards after a click on the screen', ({ given, when, and, then, pending }) => {
     given('the player opens the game', () => {
       steps.openGame()

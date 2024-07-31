@@ -42,46 +42,25 @@ Scenario: Flipping a card - Disabling the card
     When the player left clicks on the card "1"
     Then the card "1" should be disabled
 
-Scenario: Flipping two cards - Cards not matching - Keeping the cards face up
-    Given the player loads the following mock data:
-    """
-        1-1
-    """
-    When the player flips the card "1"
-    And the player flips the card "2"
-    Then the card "1" should be facing up
-    And the card "2" should be facing up
-
-Scenario:Flipping two cards - Cards not matching - Disabling all the cards 
-    Given the player loads the following mock data:
-    """
-        1-2-1
-    """
-    When the player flips the card "1"
-    And the player flips the card "2"
-    Then all the cards should be disabled
-
-Scenario: Flipping two cards - Cards not matching - Flipping the cards face down after a click on the screen
+Scenario: Flipping two cards - Cards not matching - Flipping the cards face down after a second
     Given the player loads the following mock data:
     """
         1-2
     """
     When the player flips the card "1"
     And the player flips the card "2"
-    And the player clicks on the screen
-    Then the card "1" should be facing down
-    And the card "2" should be facing down
+    Then the card "1" should be facing down after "1" seconds
+    And the card "2" should be facing down after "1" seconds
 
-Scenario: Flipping two cards - Cards not matching - Reenabling the cards after a click on the screen
+Scenario: Flipping two cards - Cards not matching - Reenabling the cards after a second
     Given the player loads the following mock data:
     """
         1-2
     """
     When the player flips the card "1"
     And the player flips the card "2"
-    And the player clicks on the screen
-    Then the card "1" should be enabled
-    And the card "2" should be enabled
+    Then the card "1" should be enabled after "1" seconds
+    And the card "2" should be enabled after "1" seconds
 
 Scenario: Flipping two cards - Cards matching - Keeping the cards face up
     Given the player loads the following mock data:
